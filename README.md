@@ -14,4 +14,5 @@ An amazeballs activity stream project focussing on UK research projects, created
 * Julian Cheal
 * Nick Jackson
 * Harry Newton
+* Nick Syrotiuk
 * Joss Winn
