@@ -38,6 +38,7 @@ require 'connect.php';
         // We first select all the events from the database ordered by date:
         
         $dates = array();
+        /*
         $res = mysql_query("SELECT * FROM timeline ORDER BY date_event ASC");
 		
         while($row=mysql_fetch_assoc($res))
@@ -46,12 +47,60 @@ require 'connect.php';
         	
 			// Store the events in an array, grouped by years:
             $dates[date('Y',strtotime($row['date_event']))][] = $row;
-        }
-        $dates[date('Y',strtotime('01/01/2001'))][] = 'test';
-        $dates[date('Y',strtotime('01/02/2004'))][] = "what";
-        $dates[date('Y',strtotime('02/01/2005'))][] = 'is';
-        $dates[date('Y',strtotime('03/01/2001'))][] = 'this';
-        $dates[date('Y',strtotime('03/01/2001'))][] = '1';
+        }*/
+		    $row = array(
+		    "id" => 1,
+		    "type" => "news",
+		    "title" => "bar",
+		    "body" => "baz",
+		    "date_event" => "2004-01-02"
+		);
+		
+		    $row2 = array(
+		    "id" => 3,
+		    "type" => "image",
+		    "title" => "foo",
+		    "body" => "bar",
+		    "date_event" => "2007-04-03"
+		);
+		
+		    $row3 = array(
+		    "id" => 2,
+		    "type" => "news",
+		    "title" => "baz",
+		    "body" => "foo",
+		    "date_event" => "2007-04-04"
+		);
+		    $row4 = array(
+		    "id" => 1,
+		    "type" => "news",
+		    "title" => "bar",
+		    "body" => "baz",
+		    "date_event" => "2007-04-05"
+		);
+		
+		    $row5 = array(
+		    "id" => 3,
+		    "type" => "image",
+		    "title" => "foo",
+		    "body" => "bar",
+		    "date_event" => "2007-04-06"
+		);
+		
+		    $row6 = array(
+		    "id" => 2,
+		    "type" => "news",
+		    "title" => "baz",
+		    "body" => "foo",
+		    "date_event" => "2007-04-07"
+		);
+
+        $dates[date('d M Y',strtotime($row['date_event']))][] = $row;
+        $dates[date('d M Y',strtotime($row2['date_event']))][] = $row2;
+        $dates[date('d M Y',strtotime($row3['date_event']))][] = $row3;
+        $dates[date('d M Y',strtotime($row4['date_event']))][] = $row4;
+        $dates[date('d M Y',strtotime($row5['date_event']))][] = $row5;
+        $dates[date('d M Y',strtotime($row6['date_event']))][] = $row6;
         
         $colors = array('green','blue','chreme');
 		$scrollPoints = '';
