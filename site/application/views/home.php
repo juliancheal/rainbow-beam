@@ -3,7 +3,7 @@
 	<h1>I'm a beautiful rainbow.</h1>
 	<p>Rainbow Beam is a non-stop stream of activity around research. It's awesome, and it's got APIs!</p>
 	<p>Why not throw yourself in at the deep end?</p>
-	<p><a class="btn btn-primary btn-large" href="<?php site_url('timeline'); ?>">Check out the timeline &raquo;</a> <a class="btn btn-primary btn-large" href="<?php site_url('stream'); ?>">View the live stream &raquo;</a></p>
+	<p><a class="btn btn-primary btn-large" href="<?php echo site_url('timeline'); ?>">Check out the timeline &raquo;</a> <a class="btn btn-primary btn-large" href="<?php echo site_url('stream'); ?>">View the live stream &raquo;</a></p>
 </div>
 
 <!-- Example row of columns -->
