@@ -1,10 +1,4 @@
-body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
-	/* Simple page reset */
-	margin:0;
-	padding:0;
-}
-
-body{
+#timelineLimiter{
 	/* Setting default text color, background and a font stack */
 	color:#555555;
 	font-size:0.825em;
@@ -54,9 +48,9 @@ li span{
 
 /* Individual background images for each type of event: */
 
-li.news span.icon { 	background:url(img/icons/newspaper.png) no-repeat; }
-li.image span.icon { 	background:url(img/icons/camera.png) no-repeat; }
-li.milestone span.icon { 	background:url(img/icons/chart.png) no-repeat; }
+li.news span.icon { 	background:url(../img/icons/newspaper.png) no-repeat; }
+li.image span.icon { 	background:url(../img/icons/camera.png) no-repeat; }
+li.milestone span.icon { 	background:url(../img/icons/chart.png) no-repeat; }
 
 div.content{
 	/* This div contains additional data for the content */
@@ -136,13 +130,13 @@ div.content{
 
 #bar{
 	/* The scroll bar */
-	background:url(img/slider_center.png) repeat-x center center;
+	background:url(../img/slider_center.png) repeat-x center center;
 	height:25px;
 	cursor:pointer;
 }
 
 #barLeft{
-	background:transparent url(img/slider.png) no-repeat scroll left center;
+	background:transparent url(../img/slider.png) no-repeat scroll left center;
 	height:25px;
 	width:20px;
 	left:0;
@@ -151,7 +145,7 @@ div.content{
 }
 
 #barRight{
-	background:transparent url(img/slider.png) no-repeat scroll right center;
+	background:transparent url(../img/slider.png) no-repeat scroll right center;
 	height:25px;
 	position:absolute;
 	right:0;

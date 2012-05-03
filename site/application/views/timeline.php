@@ -1,35 +1,17 @@
 <?php
 
-// Error reporting:
-error_reporting(E_ALL^E_NOTICE);
-
 // Including the DB connection file:
 define("INCLUDE_CHECK",1);
 require 'connect.php';
 
 ?>
 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/styles.css" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Event Timeline</title>
-
-<link rel="stylesheet" type="text/css" href="styles.css" />
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
 
-</head>
-
-<body>
-
-<div id="main">
-	<h1>Event Timeline</h1>
-	
     <div id="timelineLimiter"> <!-- Hides the overflowing timelineScroll div -->
 	    <div id="timelineScroll"> <!-- Contains the timeline and expands to fit -->
 
@@ -159,9 +141,3 @@ require 'connect.php';
         </div>
         
     </div> 
-
-  	<p class="tutInfo"></p>
-</div>
-
-</body>
-</html>
