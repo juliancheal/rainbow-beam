@@ -43,9 +43,11 @@
 				<a class="brand" href="<?php echo site_url(); ?>">Rainbow Beam</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="active"><a href="<?php echo site_url(); ?>">Home</a></li>
-						<li><a href="<?php echo site_url('about'); ?>">About</a></li>
-						<li><a href="<?php echo site_url('docs'); ?>">Documentation</a></li>
+						<li<?php if ($page === 'home'){ echo ' class="active"'; } ?>><a href="<?php echo site_url(); ?>">Home</a></li>
+						<li<?php if ($page === 'timeline'){ echo ' class="active"'; } ?>><a href="<?php echo site_url('timeline'); ?>">Timeline</a></li>
+						<li<?php if ($page === 'stream'){ echo ' class="active"'; } ?>><a href="<?php echo site_url('stream'); ?>">Live Stream</a></li>
+						<li<?php if ($page === 'about'){ echo ' class="active"'; } ?>><a href="<?php echo site_url('about'); ?>">About</a></li>
+						<li<?php if ($page === 'docs'){ echo ' class="active"'; } ?>><a href="<?php echo site_url('docs'); ?>">Documentation</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
