@@ -6,6 +6,6 @@ require 'bundler'
 
 Bundler.require
 
-require 'rainbowbeam/listener'
+require './rainbowbeam/listener'
 
 run Rainbowbeam::Listener::App
