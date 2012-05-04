@@ -47,12 +47,6 @@
         $j=0;
             foreach($array as $event)
             {
-            	if ($j > 9)
-            	{
-            		echo '<a href = "' . site_url() . '/timeline/view_monthly?year=2007">View more…</a>';
-            		break;
-            	}
-            	
 				// Loop through the events in the current year:
 				
                 echo '<li class="'.$event['verb'].'">
@@ -67,6 +61,12 @@
 				
 				</li>';
 				$j++;
+				
+            	if ($j > 0)
+            	{
+            		echo '<a href = "' . site_url() . '/timeline/view_monthly?year=2007">View more…</a>';
+            		break;
+            	}            	
             }
             
             echo '</ul></div>';
