@@ -46,8 +46,21 @@
         
             foreach($array as $event)
             {
-				// Loop through the events in the current year:
 				
+				try
+				{
+					$message = $event['payload']['message'];
+				}
+				catch (exception $e)
+				{
+					try
+					{
+						$message = $event['payload'];
+					}
+					catch (exception $e)
+					{
+					}
+				}	
 				// Loop through the events in the current year:
 				
                 echo '<li class="'.$event['verb'].'">
@@ -55,7 +68,7 @@
 				'.htmlspecialchars($event['actor']). ' ' . htmlspecialchars($event['verb']).'
 				
 				<div class="content">
-					<div class="body">'.($event['verb']=='image'?'<div style="text-align:center"><img src="'.$event['payload']['message'].'" alt="Image" /></div>':nl2br($event['payload']['message'])).'</div>
+					<div class="body">'.($event['verb']=='image'?'<div style="text-align:center"><img src="'.$message.'" alt="Image" /></div>':nl2br($event['payload']['message'])).'</div>
 					<div class="title">'.htmlspecialchars($event['actor']). ' ' . htmlspecialchars($event['verb']).'</div>
 					<div class="date">'.date("F j, Y",$event['timestamp']).'</div>
 				</div>
@@ -88,6 +101,6 @@
                 <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
           </div>
         </div>
-        <?php echo '<a href = "' . site_url() . 'timeline/view_monthly">Back to monthly view</a>';?>
+        <?php echo '<a href = "' . site_url() . 'timeline/view_monthly?year=' . $year_sent .'">Back to monthly view</a>';?>
         
     </div> 

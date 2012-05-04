@@ -99,6 +99,7 @@ class Timeline extends CI_Controller {
 		{
 			$data['rows'][] = $result;
 		}
+			$data['year_sent'] = $year;
 
 		$head['page'] = 'Timeline';
 	
