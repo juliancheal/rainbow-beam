@@ -35,7 +35,6 @@ require 'connect.php';
 		    foreach($rows as $row)
 		    {
         		$dates[date('M Y',strtotime($row['date_event']))][] = $row;
-        		print_r($dates);
 		    }    
 		}
 
@@ -101,5 +100,5 @@ require 'connect.php';
                 <div id="barRight"></div>  <!-- Right arrow, both are styled with CSS -->
           </div>
         </div>
-        
+        <?php echo '<a href = "' . site_url() . 'timeline/view_yearly">Back to yearly view</a>';?>
     </div> 

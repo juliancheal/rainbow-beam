@@ -31,20 +31,14 @@ require 'connect.php';
             $dates[date('Y',strtotime($row['date_event']))][] = $row;
         }*/
 		    
-
-        $dates[date('Y',strtotime($row['date_event']))][] = $row;
-        $dates[date('Y',strtotime($row2['date_event']))][] = $row2;
-        $dates[date('Y',strtotime($row3['date_event']))][] = $row3;
-        $dates[date('Y',strtotime($row4['date_event']))][] = $row4;
-        $dates[date('Y',strtotime($row5['date_event']))][] = $row5;
-        $dates[date('Y',strtotime($row6['date_event']))][] = $row6;
-        $dates[date('Y',strtotime($row7['date_event']))][] = $row7;
-        $dates[date('Y',strtotime($row8['date_event']))][] = $row8;
-        $dates[date('Y',strtotime($row9['date_event']))][] = $row9;
-        $dates[date('Y',strtotime($row10['date_event']))][] = $row10;
-        $dates[date('Y',strtotime($row11['date_event']))][] = $row11;
-        $dates[date('Y',strtotime($row11['date_event']))][] = $row11;
-        
+        if (isset($rows))
+        {
+		    foreach($rows as $row)
+		    {
+        		$dates[date('Y',strtotime($row['date_event']))][] = $row;
+		    }    
+		}
+		
         $colors = array('green','blue','chreme');
 		$scrollPoints = '';
 		
