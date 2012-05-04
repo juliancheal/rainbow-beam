@@ -88,6 +88,8 @@ class Activity extends CI_Controller {
 								)
 							);
 							
+							$this->load->library('mongo_db');
+							
 							$this->mongo_db->insert('publish', $object);
 							
 							$this->output
