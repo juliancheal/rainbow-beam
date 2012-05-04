@@ -27,7 +27,7 @@
         {
 		    foreach($rows as $row)
 		    {
-        		$dates[date('Y',strtotime($row['date_event']))][] = $row;
+        		$dates[date('Y',$row['timestamp'])][] = $row;
 		    }    
 		}
 		
@@ -52,16 +52,17 @@
             		echo '<a href = "' . site_url() . '/timeline/view_monthly?year=2007">View more…</a>';
             		break;
             	}
+            	
 				// Loop through the events in the current year:
 				
-                echo '<li class="'.$event['type'].'">
-				<span class="icon" title="'.ucfirst($event['type']).'"></span>
-				'.htmlspecialchars($event['title']).'
+                echo '<li class="'.$event['verb'].'">
+				<span class="icon" title="'.ucfirst($event['verb']).ucfirst($event['verb']).'"></span>
+				'.htmlspecialchars($event['actor']). ' ' . htmlspecialchars($event['verb']).'
 				
 				<div class="content">
-					<div class="body">'.($event['type']=='image'?'<div style="text-align:center"><img src="'.$event['body'].'" alt="Image" /></div>':nl2br($event['body'])).'</div>
-					<div class="title">'.htmlspecialchars($event['title']).'</div>
-					<div class="date">'.date("F j, Y",strtotime($event['date_event'])).'</div>
+					<div class="body">'.($event['verb']=='image'?'<div style="text-align:center"><img src="'.$event['payload']['message'].'" alt="Image" /></div>':nl2br($event['payload']['message'])).'</div>
+					<div class="title">'.htmlspecialchars($event['actor']). ' ' . htmlspecialchars($event['verb']).'</div>
+					<div class="date">'.date("F j, Y",$event['timestamp']).'</div>
 				</div>
 				
 				</li>';
