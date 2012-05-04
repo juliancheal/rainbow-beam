@@ -7,6 +7,8 @@ class Activity extends CI_Controller {
 	public function index()
 	{
 	
+		$this->load->library('mongo_db');
+	
 		switch ($_SERVER['REQUEST_METHOD'])
 		{
 	
