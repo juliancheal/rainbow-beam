@@ -12,7 +12,7 @@ An amazeballs activity stream project focussing on UK research projects, created
 ## Made by all the cool kids!
 
 * Julian Cheal
-* Nick Jackson
-* Harry Newton
+* [Nick Jackson](mailto:nijackson@lincoln.ac.uk)
+* [Harry Newton](mailto:hnewton@lincoln.ac.uk)
 * Nick Syrotiuk
-* Joss Winn
+* [Joss Winn](mailto:jwinn@lincoln.ac.uk)

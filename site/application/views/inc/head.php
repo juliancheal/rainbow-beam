@@ -8,12 +8,14 @@
 		
 		<!-- Le styles -->
 		<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
+		
 		<style type="text/css">
 			body {
 			padding-top: 60px;
 			padding-bottom: 40px;
 			}
 		</style>
+
 		<link href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.min.css" rel="stylesheet">
 		
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
