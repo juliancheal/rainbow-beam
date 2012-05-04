@@ -114,13 +114,9 @@ class Timeline extends CI_Controller {
 	public function view_yearly()
 	{
 	
-		$row = array(
-		    "id" => 1,
-		    "type" => "news",
-		    "title" => "bar",
-		    "body" => "baz",
-		    "date_event" => "2004-01-02"
-		);
+	$this->load->library('mongo_db');
+$row = $this->mongo_db->get('test');
+
 		
 		    $row2 = array(
 		    "id" => 3,
@@ -156,8 +152,9 @@ class Timeline extends CI_Controller {
 		    $row6 = array(
 		    "id" => 2,
 		    "type" => "news",
-		    "title" => "baz",
-		    "body" => "foo",
+		    "title" => "Test thing was made",
+		    "body" => "This is a test body of text to see what happens when it is shown on screen
+		    So.. hows this look?",
 		    "date_event" => "2007-04-07"
 		);
 				    $row7 = array(
@@ -200,7 +197,7 @@ class Timeline extends CI_Controller {
 		);
 		
 	
-		$data['row'] = $row;
+		$data['row'] = $row[3];
 		$data['row2'] = $row2;
 		$data['row3'] = $row3;
 		$data['row4'] = $row4;
@@ -217,16 +214,23 @@ class Timeline extends CI_Controller {
 		$this->load->view('inc/head', $head);
 		$this->load->view('timeline_view_yearly', $data);
 		$this->load->view('inc/foot');
-		
 	}
 	
 	public function view_monthly()
 	{
 		$year = $this->input->get('year');
-			
+		
+		$this->load->library('mongo_db');
+		
 		//REQUEST ONLY THIS YEAR FORM DATABASE
 			
-		$row = array(
+		$row = $this->mongo_db->where('date_event', '2007-04-03')->get('test');
+
+		foreach($row as $result)
+		{
+			$data['rows'][] = $result;
+		}
+			$row = array(
 		    "id" => 1,
 		    "type" => "news",
 		    "title" => "bar",
@@ -312,17 +316,6 @@ class Timeline extends CI_Controller {
 		);
 		
 	
-		$data['row'] = $row;
-		$data['row2'] = $row2;
-		$data['row3'] = $row3;
-		$data['row4'] = $row4;
-		$data['row5'] = $row5;
-		$data['row6'] = $row6;
-		$data['row7'] = $row7;
-		$data['row8'] = $row8;
-		$data['row9'] = $row9;
-		$data['row10'] = $row10;
-		$data['row11'] = $row11;
 
 		$head['page'] = 'Timeline';
 	

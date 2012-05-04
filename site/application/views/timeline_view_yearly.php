@@ -47,8 +47,8 @@ require 'connect.php';
         
         $colors = array('green','blue','chreme');
 		$scrollPoints = '';
-			
-        $i=0;
+		
+		$i=0;
         foreach($dates as $year=>$array)
         {
 			// Loop through the years:
@@ -58,10 +58,10 @@ require 'connect.php';
                 <ul class="eventList">
                 ';
         
-        
+        $j=0;
             foreach($array as $event)
             {
-            	if ($i > 9)
+            	if ($j > 9)
             	{
             		echo '<a href = "' . site_url() . '/timeline/view_monthly?year=2007">View more…</a>';
             		break;
@@ -79,7 +79,7 @@ require 'connect.php';
 				</div>
 				
 				</li>';
-				$i++;
+				$j++;
             }
             
             echo '</ul></div>';

@@ -30,21 +30,11 @@ require 'connect.php';
 			// Store the events in an array, grouped by months:
             $dates[date('M Y',strtotime($row['date_event']))][] = $row;
         }*/
-		    
-
+		    foreach($rows as $row)
+		    {
         $dates[date('M Y',strtotime($row['date_event']))][] = $row;
-        $dates[date('M Y',strtotime($row2['date_event']))][] = $row2;
-        $dates[date('M Y',strtotime($row3['date_event']))][] = $row3;
-        $dates[date('M Y',strtotime($row4['date_event']))][] = $row4;
-        $dates[date('M Y',strtotime($row5['date_event']))][] = $row5;
-        $dates[date('M Y',strtotime($row6['date_event']))][] = $row6;
-        $dates[date('M Y',strtotime($row7['date_event']))][] = $row7;
-        $dates[date('M Y',strtotime($row8['date_event']))][] = $row8;
-        $dates[date('M Y',strtotime($row9['date_event']))][] = $row9;
-        $dates[date('M Y',strtotime($row10['date_event']))][] = $row10;
-        $dates[date('M Y',strtotime($row11['date_event']))][] = $row11;
-        $dates[date('M Y',strtotime($row11['date_event']))][] = $row11;
-        
+		    }
+
         $colors = array('green','blue','chreme');
 		$scrollPoints = '';
 			
@@ -58,9 +48,10 @@ require 'connect.php';
                 <ul class="eventList">
                 ';
         
+       	$j=0;
             foreach($array as $event)
             {            
-            	if ($i > 9)
+            	if ($j > 9)
             	{
             		echo '<a href = "' . site_url() . '/timeline/view_daily?year=2007&month=june">View more…</a>';
             		break;
@@ -78,6 +69,7 @@ require 'connect.php';
 				</div>
 				
 				</li>';
+				$j++;
             }
             
             echo '</ul></div>';
