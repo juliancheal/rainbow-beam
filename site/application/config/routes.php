@@ -41,6 +41,7 @@
 $route['default_controller'] = 'content/home';
 $route['404_override'] = '';
 
+$route['about'] = 'content/about';
 $route['docs'] = 'content/docs';
 
 /* End of file routes.php */

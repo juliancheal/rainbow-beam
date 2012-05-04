@@ -24,6 +24,16 @@ class Content extends CI_Controller {
 		$this->load->view('docs', $data);
 		$this->load->view('inc/foot');
 	}
+	
+	public function about()
+	{
+	
+		$head['page'] = 'about';
+	
+		$this->load->view('inc/head', $head);
+		$this->load->view('about');
+		$this->load->view('inc/foot');
+	}
 }
 
 // EOF
