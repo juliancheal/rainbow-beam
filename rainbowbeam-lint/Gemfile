@@ -1,2 +1,4 @@
 gem 'mongo'
 gem 'json'
+gem 'yaml'
+gem 'pusher'

@@ -44,7 +44,7 @@ module Rainbowbeam
           end
         when "said"
             if data["payload"]["message"]
-              if if data["payload"]["message"].to_s.empty?
+              if data["payload"]["message"].to_s.empty?
                 return false
               end
             else
