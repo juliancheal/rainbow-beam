@@ -15,26 +15,26 @@
 
 <p>Before you can send us anything you'll need an application ID and an application API key. To get these, check the project README and hit up a team member.</p>
 
-<h3>POST us something!</h3>
+<h3>HTTP POST</h3>
 
-<p>We have a simple endpoint for all incoming event notifications. You need to send a <code>HTTP POST</code> request to the following URL:
+<p>We have a simple endpoint for all incoming event notifications. You need to send a HTTP POST request to the following URL:</p>
 
 <pre>
 http://rainbowbeam.lncd.org/activity
 </pre>
 
-<p>You will also need to provide your application ID as the HTTP Authorization username, and your API key as the HTTP Authorization password. If you don't then you'll receive a <code>HTTP 401</code> response and a stern telling off.</p>
+<p>You will also need to provide your application ID as the HTTP Authorization username, and your API key as the HTTP Authorization password. If you don't then you'll receive a HTTP 401 response and a stern telling off.</p>
 
 <h4>Le Body</h4>
 
-<p>Your <code>POST</code> request needs to contain a JSON body with the following structure. If you really want then you can send us even more, but it'll be thrown away so there's not much point.</p>
+<p>Your POST request needs to contain a JSON body with the following structure. If you really want then you can send us even more, but it'll be thrown away so there's not much point.</p>
 
 <pre>
 {
 	"timestamp": int	// A Unix timestamp (UTC please) relating to the date and time of the event.
-	"actor": string	// The URI of the actor which is performing the action.
-	"verb": string	// One of our verbs.
-	"payload": array	// An array of information as required by the verb being used.
+	"actor": string		// The URI of the actor which is performing the action.
+	"verb": string		// One of our verbs.
+	"payload": object	// An object of information as required by the verb being used.
 }
 </pre>
 
@@ -42,11 +42,11 @@ http://rainbowbeam.lncd.org/activity
 
 <h4>Le Response</h4>
 
-<p>If things have gone well and your message is queued for processing and dissemination we'll send you a <code>HTTP 202</code> response code. If you receive a <code>HTTP 400</code> then you've done something wrong (most likely sent us invalid JSON) and the error message will tell you more. If you receive a <code>HTTP 500</code> then something has gone catastrophically wrong at our end, and we apologise.</p>
+<p>If things have gone well and your message is queued for processing and dissemination we'll send you a HTTP 202 response code. If you receive a HTTP 400 then you've done something wrong (most likely sent us invalid JSON) and the error message will tell you more. If you receive a HTTP 500 then something has gone catastrophically wrong at our end, and we apologise.</p>
 
 <h3 id="verbs">Verbs</h3>
 
-<p>The following are valid verbs and their expected payloads. If you send an invalid verb, or an invalid payload for that verb, you will still receive a <code>HTTP 202</code> response code but your event will not appear in the stream.</p>
+<p>The following are valid verbs and their expected payloads. If you send an invalid verb, or an invalid payload for that verb, you will still receive a HTTP 202 response code but your event will not appear in the stream.</p>
 
 <?php
 
@@ -68,3 +68,25 @@ payload: {';
 }
 
 ?>
+
+<h2>Getting Activity</h2>
+
+<h3>HTTP GET</h3>
+
+<p>To get the stream, you need to send a HTTP GET request to the following URL:</p>
+
+<pre>
+http://rainbowbeam.lncd.org/activity
+</pre>
+
+<p>Do this, and we'll send you back a JSON representation of the latest 50 items in the stream.</p>
+
+<p>If you want to be a bit more specific, you can use the following GET parameters to fine-tune the response. All are optional.</p>
+
+<h4>limit</h4>
+
+<p>Turn down the number of items we respond with. This is capped at 50.</p>
+
+<h4>actor</h4>
+
+<p>A URI for the actor that you're interested in the stream for.</p>

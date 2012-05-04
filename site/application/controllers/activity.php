@@ -15,11 +15,29 @@ class Activity extends CI_Controller {
 			//! GET
 	
 			case 'GET':
-	
+			
 				$query = array();
-				$limit = 50;
+			
+				if ($this->input->get('actor'))
+				{
+					$query['actor'] = $this->input->get('actor');
+				}
+	
+				if ($this->input->get('limit')
+					AND (int) $this->input->get('limit') > 0
+					AND (int) $this->input->get('limit') < 50
+				)
+				{
+					$limit = (int) $this->input->get('limit');
+				}
+				else
+				{
+					$limit = 50;
+				}
 	
 				$activity = $this->activity_model->get_events($query, $limit);
+				
+				$output['events'] = array();
 				
 				foreach ($activity as $event)
 				{
@@ -69,6 +87,8 @@ class Activity extends CI_Controller {
 									'key' => $_SERVER['PHP_AUTH_PW']
 								)
 							);
+							
+							$this->load->library('mongo_db');
 							
 							$this->mongo_db->insert('publish', $object);
 							
