@@ -19,6 +19,16 @@ class Activity_model extends CI_Model {
 			->where($query)
 			->get('activity');
     }
+    
+    function get_verbs()
+    {
+    
+    	$this->load->library('mongo_db');
+    
+        return $this->mongo_db
+			->order_by(array('name' => 'ASC'))
+			->get('verbs');
+    }
 
 }
 
