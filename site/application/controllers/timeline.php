@@ -6,10 +6,8 @@ class Timeline extends CI_Controller {
 	{
 	
 		$this->load->library('mongo_db');
-		
-		//REQUEST ONLY THIS YEAR FORM DATABASE
 			
-		$row = $this->mongo_db->where('date_event', '2008-08-01')->get('test');
+		$row = $this->mongo_db->where('date_event')->get('activity');
 
 		foreach($row as $result)
 		{
@@ -31,10 +29,10 @@ class Timeline extends CI_Controller {
 	}
 
 	public function view_yearly()
-	{		
+	{
 		$this->load->library('mongo_db');
-		
-		$row = $this->mongo_db->get('test');
+			
+		$row = $this->mongo_db->where('date_event')->get('activity');
 
 		foreach($row as $result)
 		{
@@ -61,9 +59,9 @@ class Timeline extends CI_Controller {
 		
 		$this->load->library('mongo_db');
 		
-		//REQUEST ONLY THIS YEAR FORM DATABASE
+		//REQUEST ONLY THIS YEAR FROM DATABASE
 			
-		$row = $this->mongo_db->where('date_event', '2008-08-01')->get('test');
+		$row = $this->mongo_db->where_gt('timestamp', strtotime('1 January ' . $year))->where_lt('timestamp', strtotime('31 December ' . $year))->get('activity');
 
 		foreach($row as $result)
 		{
@@ -87,13 +85,15 @@ class Timeline extends CI_Controller {
 
 	public function view_daily()
 	{
-			$year = $this->input->get('year');
+		$year = $this->input->get('year');
+		
+		$month = $this->input->get('month');
 		
 		$this->load->library('mongo_db');
 		
-		//REQUEST ONLY THIS YEAR FORM DATABASE
+		//REQUEST ONLY THIS YEAR FROM DATABASE
 			
-		$row = $this->mongo_db->where('date_event', '2008-08-01')->get('test');
+		$row = $this->mongo_db->where_gt('timestamp', strtotime('1 ' . $month . ' ' . $year))->where_lt('timestamp', strtotime('31 ' . $month . ' ' . $year))->get('activity');
 
 		foreach($row as $result)
 		{
@@ -112,7 +112,9 @@ class Timeline extends CI_Controller {
 			$this->load->view('timeline_view_daily');
 		}
 		$this->load->view('inc/foot');
+		
 	}
+
 }
 
 // EOF
