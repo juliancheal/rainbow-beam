@@ -3,6 +3,7 @@ GEM
   specs:
     bson (1.6.2)
     json (1.7.0)
+    logger (1.2.8)
     mongo (1.6.2)
       bson (~> 1.6.2)
     rack (1.4.1)
@@ -19,5 +20,6 @@ PLATFORMS
 
 DEPENDENCIES
   json
+  logger
   mongo
   sinatra

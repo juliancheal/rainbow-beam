@@ -16,7 +16,7 @@ module Rainbowbeam
         # params[:json]
         data = JSON.parse(params[:data])
         publish(data)
-        200
+        203
       end
       
       get '/' do
