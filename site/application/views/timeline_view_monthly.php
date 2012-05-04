@@ -30,10 +30,14 @@ require 'connect.php';
 			// Store the events in an array, grouped by months:
             $dates[date('M Y',strtotime($row['date_event']))][] = $row;
         }*/
+        if (isset($rows))
+        {
 		    foreach($rows as $row)
 		    {
-        $dates[date('M Y',strtotime($row['date_event']))][] = $row;
-		    }
+        		$dates[date('M Y',strtotime($row['date_event']))][] = $row;
+        		print_r($dates);
+		    }    
+		}
 
         $colors = array('green','blue','chreme');
 		$scrollPoints = '';
