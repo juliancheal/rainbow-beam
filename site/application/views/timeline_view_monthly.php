@@ -1,11 +1,3 @@
-<?php
-
-// Including the DB connection file:
-define("INCLUDE_CHECK",1);
-require 'connect.php';
-
-?>
-
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/styles.css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
