@@ -7,7 +7,7 @@ class Activity extends CI_Controller {
 	public function index()
 	{
 	
-		$this->load->library('mongo_db');
+		$this->load->model('activity_model');
 	
 		switch ($_SERVER['REQUEST_METHOD'])
 		{
@@ -17,12 +17,9 @@ class Activity extends CI_Controller {
 			case 'GET':
 	
 				$query = array();
+				$limit = 50;
 	
-				$activity = $this->mongo_db
-					->limit(50)
-					->order_by(array('timestamp' => 'ASC'))
-					->where($query)
-					->get('activity');
+				$activity = $this->activity_model->get_events($query, $limit);
 				
 				foreach ($activity as $event)
 				{
@@ -31,6 +28,7 @@ class Activity extends CI_Controller {
 				}
 				
 				$output['query'] = $query; 
+				$output['limit'] = $limit; 
 				
 				$this->output
 					->set_content_type('application/json')
