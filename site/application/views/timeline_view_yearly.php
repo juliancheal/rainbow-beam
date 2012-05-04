@@ -65,6 +65,7 @@
             	if ($j > 0)
             	{
             		echo '<a href = "' . site_url() . '/timeline/view_monthly?year=' . date("Y",$event['timestamp']) . '">View more…</a>';
+            		print_r(date("Y",$event['timestamp']));
             		break;
             	}            	
             }
